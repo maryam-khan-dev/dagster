@@ -46,15 +46,15 @@ def _is_code_location_root(path: Path) -> bool:
 
 class CodeLocationProjectContext:
     @classmethod
-    def from_root_path(cls, root_path: Path, component_registry: "ComponentRegistry") -> Self:
-        if not _is_code_location_root(root_path):
+    def from_code_location_path(cls, path: Path, component_registry: "ComponentRegistry") -> Self:
+        if not _is_code_location_root(path):
             raise DagsterError(
-                f"Path {root_path} is not a code location root. Must have a pyproject.toml with a [tool.dagster] section."
+                f"Path {path} is not a code location root. Must have a pyproject.toml with a [tool.dagster] section."
             )
 
         return cls(
-            root_path=str(root_path),
-            name=os.path.basename(root_path),
+            root_path=str(path),
+            name=os.path.basename(path),
             component_registry=component_registry,
         )
 

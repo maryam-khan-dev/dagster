@@ -32,7 +32,7 @@ def list_component_types_command(ctx: click.Context) -> None:
         )
         sys.exit(1)
 
-    context = CodeLocationProjectContext.from_root_path(
+    context = CodeLocationProjectContext.from_code_location_path(
         find_enclosing_code_location_root_path(Path.cwd()),
         ComponentRegistry.from_entry_point_discovery(builtin_component_lib=builtin_component_lib),
     )

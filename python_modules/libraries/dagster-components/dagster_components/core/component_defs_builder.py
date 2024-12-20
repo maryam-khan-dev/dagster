@@ -138,7 +138,7 @@ def build_component_defs(
     """
     from dagster._core.definitions.definitions_class import Definitions
 
-    context = CodeLocationProjectContext.from_root_path(
+    context = CodeLocationProjectContext.from_code_location_path(
         code_location_path, registry or ComponentRegistry.from_entry_point_discovery()
     )
 
